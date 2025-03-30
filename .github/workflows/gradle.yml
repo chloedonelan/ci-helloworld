@@ -47,7 +47,7 @@ jobs:
         with:
           default_author: github_actions
           message: 'commit summary report'
-          add: 'coverage-summary.json'
+          add: '*.json'
 
   build_and_publish_docker_image:
     name: Publish to Docker Hub
