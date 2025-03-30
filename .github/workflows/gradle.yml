@@ -39,8 +39,15 @@ jobs:
           jacoco-csv-file: build/reports/jacoco/test/jacocoTestReport.csv
           # fail-if-branches-less-than: 100
           generate-summary: true
+          summary-filename: coverage-summary.json
           fail-on-branches-decrease: true
           fail-on-coverage-decrease: true
+      - name: Commit and push the summary report (if it changed)
+        uses: EndBug/add-and-commit@v7
+        with:
+          default_author: github_actions
+          message: 'commit summary report'
+          add: 'coverage-summary.json'
 
   build_and_publish_docker_image:
     name: Publish to Docker Hub
